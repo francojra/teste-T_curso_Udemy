@@ -40,3 +40,15 @@ mean(dente$len) # Média geral
 
 group_by(dente, supp) %>%
   summarise(mean(len))
+
+# Teste T para uma amostra -----------------------------------------------------------------------------------------------------------------
+
+### Teste para determinar se a média é significativamente diferente de um valor
+### Verdadeiro valor = 18 (H0)
+### p < 0.05 (H1)
+
+t.test(dente$len, mu = 18) # Resultado não significativamente diferente
+
+### Para saber se é maior ou menor que determinado valor
+
+t.test(dente$len, alternative = "greater", mu = 3) # Resultado significativo
