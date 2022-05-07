@@ -36,4 +36,7 @@ ggplot(dente, aes(x = supp, y = len)) +
 
 # Cálculo das médias dos grupos ------------------------------------------------------------------------------------------------------------
 
+mean(dente$len) # Média geral
 
+group_by(dente, supp) %>%
+  summarise(mean(len))
