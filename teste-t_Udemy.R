@@ -74,3 +74,27 @@ t.test(OJ, VC, paired = FALSE, alternative = "greater")
 ### Ocorre em casos de duas observações serem coletadas antes e depois
 
 t.test(OJ, VC, paired = TRUE, var.equal = FALSE, conf.level = 0.95)
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
+g <- dente %>%
+  group_by(supp) %>%
+  summarise(media = mean(len), desvio = sd(len))
+g
+
+ggplot(g) +
+  geom_col(aes(x = supp, y = media), fill = c("orange", "purple"), colour = "black") +
+  geom_errorbar(aes(x = supp, ymin = media - desvio, ymax = media + desvio),
+                width = 0.2) +
+    labs(title = "Crescimento Dentário Porcos da Índia",
+       x = "Tipo de suplemento",
+       y = "Crescimento dentário") +
+  theme_bw()
+  
+ggplot(g) +
+  geom_pointrange(aes(x = supp, y = media, ymin = media - desvio, ymax = media + desvio),
+                colour = c("orange", "purple"), size = 2.3) +
+    labs(title = "Crescimento Dentário Porcos da Índia",
+       x = "Tipo de suplemento",
+       y = "Crescimento dentário") +
+  theme_minimal()
