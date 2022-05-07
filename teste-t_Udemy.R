@@ -69,3 +69,8 @@ t.test(OJ, VC, paired = FALSE, alternative = "greater")
 ### Se os valores são coletados separadamente e em condições diferentes, as amostras
 ### são independentes, ou seja, dois grupos diferentes
 
+# Teste para grupos pareados ---------------------------------------------------------------------------------------------------------------
+
+### Ocorre em casos de duas observações serem coletadas antes e depois
+
+t.test(OJ, VC, paired = TRUE, var.equal = FALSE, conf.level = 0.95)
