@@ -20,3 +20,20 @@ str(dente)
 
 qplot(x = len, data = dente, binwidth = 3) # Histograma
 
+### Teste Shapiro-Wilk de normalidade
+### H0 = Distribuição normal e p > 0.05
+
+shapiro.test(dente$len)
+
+# Gráfico da diferença entre grupos --------------------------------------------------------------------------------------------------------
+
+ggplot(dente, aes(x = supp, y = len)) +
+  geom_boxplot() +
+  geom_jitter() +
+  labs(title = "Crescimento Dentário Porcos da Índia",
+       x = "Tipo de suplemento",
+       y = "Crescimento dentário")
+
+# Cálculo das médias dos grupos ------------------------------------------------------------------------------------------------------------
+
+
