@@ -52,3 +52,20 @@ t.test(dente$len, mu = 18) # Resultado não significativamente diferente
 ### Para saber se é maior ou menor que determinado valor
 
 t.test(dente$len, alternative = "greater", mu = 3) # Resultado significativo
+
+# Teste T para dois grupos independentes ---------------------------------------------------------------------------------------------------
+
+### Testa a diferença entre as médias de dois grupos independentes
+### H0: não há diferença entre as médias dos grupos
+
+OJ <- dente$len[dente$supp == "OJ"]
+VC <- dente$len[dente$supp == "VC"]
+
+t.test(OJ, VC, paired = FALSE, var.equal = FALSE, conf.level = 0.95)
+
+t.test(OJ, VC, paired = FALSE, alternative = "greater")
+
+### paired = FALSE: medidas coletadas separadamente
+### Se os valores são coletados separadamente e em condições diferentes, as amostras
+### são independentes, ou seja, dois grupos diferentes
+
